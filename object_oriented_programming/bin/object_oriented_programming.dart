@@ -1,33 +1,49 @@
 void main() {
-  var sapi = Animal('Sapi', 1, 720);
+  var dicodingCat = Animal('Gray', 2, 4.2);
 
-  sapi.makan();
-  sapi.tidur();
+  var kucing = Cat('Poop', 1, 5, 'merah');
 
-  sapi.makan();
-  sapi.berak();
-
-  print(sapi.);
+  kucing.eat();
+  kucing.sleep();
+  kucing.walk();
 }
 
 class Animal {
-  String  _nama;
-  int _umur;
-  double _berat;
+  String name = '';
+  int age = 0;
+  double weight = 0;
 
-  Animal(this._nama, this._umur, this._berat);
+  Animal(this.name, this.age, this.weight);
 
-  void makan() {
-    print('$_nama makan..');
-    _berat = _berat + 0.2;
+  void eat() {
+    print('$name is eating.');
+    weight = weight + 0.2;
   }
 
-  void tidur() {
-    print('$_nama tidur..');
+  void sleep() {
+    print('$name is sleeping.');
   }
+}
 
-  void berak() {
-    print('$_nama mulai berak...');
-    _berat = _berat - 0.2;
+class Cat extends Animal {
+  late String furColor;
+
+  Cat(String name, int age, double weight, String furColor)
+      : this.furColor = furColor,
+        super(name, age, weight);
+
+  void walk() {
+    print('$name is walking');
+  }
+}
+
+class Fish extends Animal {
+  late String skinColor;
+  Fish(String name, int age, double weight, String skinColor)
+      : this.skinColor = skinColor,
+        super(name, age, weight);
+
+  void swimming() {
+    print('$name is swimming');
   }
 }
